@@ -15,3 +15,5 @@ services:
     restart: unless-stopped
     networks:
       - net
+    ports: 
+      - 9002:9000
