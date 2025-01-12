@@ -1,0 +1,16 @@
+name: app
+
+networks:
+    net:
+volumes:
+    postgres_data:
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    restart: unless-stopped
+    networks:
+      - net
