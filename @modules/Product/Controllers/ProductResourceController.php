@@ -41,7 +41,7 @@ class ProductResourceController extends Controller
     public function store(ProductRequest $request): RedirectResponse
     {
         return $this->tryCatchAction(function () use ($request) {
-            $path = $request->file('image')->store('images', 'public');
+            $path = $request->file('file')->store('images', 'public');
 
             if (!is_null($path)) {
                 $path = 'storage/' . $path;
@@ -76,8 +76,8 @@ class ProductResourceController extends Controller
     public function update(Product $product, ProductRequest $request): RedirectResponse
     {
         return $this->tryCatchAction(function () use ($product, $request) {
-            if ($request->hasFile('image')) {
-                $path = $request->file('image')->store('images', 'public');
+            if ($request->hasFile('file')) {
+                $path = $request->file('file')->store('images', 'public');
 
                 if (!is_null($path)) {
                     $path = 'storage/' . $path;
