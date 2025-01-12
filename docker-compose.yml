@@ -1,4 +1,4 @@
-name: app
+name: bahodir
 
 networks:
     net:
@@ -6,12 +6,11 @@ volumes:
     postgres_data:
 
 services:
-  app:
+  auction:
     build:
       context: .
       dockerfile: Dockerfile
-    image: app:latest
-    container_name: app
+    container_name: auction
     restart: unless-stopped
     networks:
       - net
